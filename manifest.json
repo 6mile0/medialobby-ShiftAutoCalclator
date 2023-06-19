@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Medialobbyシフト時間自動入力",
+  "description": "Medialobbyのシフト時間を自動入力します。",
+  "version": "1.0",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["scripting", "activeTab"],
+  "commands": {
+    "calcWorkTime": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+1",
+        "mac": "Command+Shift+1"
+      },
+      "description": "Calc Actual Work Time at section of day"
+    }
+  }
+}
