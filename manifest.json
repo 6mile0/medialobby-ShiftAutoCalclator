@@ -6,7 +6,11 @@
   "background": {
     "service_worker": "background.js"
   },
+  "icons": {
+    "48": "lobbyber.png"
+  },
   "permissions": ["scripting", "activeTab"],
+  "host_permissions": ["https://docs.google.com/forms/d/e/1FAIpQLScXjIOVl91V7caaoD8MI7_NKAWfQrHgxfq55dPZ2w5V-nAFXQ/"],
   "commands": {
     "calcWorkTime": {
       "suggested_key": {
