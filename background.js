@@ -30,17 +30,21 @@ chrome.commands.onCommand.addListener((command) => {
                       min: min
                     };
                   }
-                  // const nowDate = new Date(); // 今日の日付を取得
                   let workTimeData = calcWorkTime(document.querySelector('[aria-labelledby="i6"]').value); // フォームから稼働時間を取得
                   let subworkTimeData = document.querySelector('[aria-labelledby="i14"]').value; // フォームから稼働時間を取得(勤務時間帯②)
                   var sumHour = 0;
                   var sumMin = 0;
-                  if (subworkTimeData) {
+                  if (subworkTimeData) { // 勤務時間帯②が入力されている場合
                     subworkTimeData = calcWorkTime(subworkTimeData);
                     document.querySelector('[aria-labelledby="i18"]').value = subworkTimeData.hours + ":" + subworkTimeData.min;
                     sumHour = parseInt(workTimeData.hours) + parseInt(subworkTimeData.hours);
                     sumMin = parseInt(workTimeData.min) + parseInt(subworkTimeData.min);
-                    sumMin = ("0" + sumMin).slice(-2);
+                    // 60分を超えた場合、時間に変換
+                    if (sumMin >= 60) {
+                      sumHour += 1;
+                      sumMin -= 60;
+                    }
+                    sumMin = ("0" + sumMin).slice(-2); 
                   } else {
                     sumHour = workTimeData.hours;
                     sumMin = workTimeData.min;
