@@ -18,7 +18,6 @@ chrome.commands.onCommand.addListener((command) => {
               var endWorkTime = new Date(nowDate.getFullYear(), nowDate.getMonth(), nowDate.getDate(), workTime[1].split(":")[0], workTime[1].split(":")[1], 0);
               return Math.floor((endWorkTime.getTime() - startWorkTime.getTime()) / 1000 / 60);
             }
-
             function convertTime(min) {
               return {
                 hours: String(Math.floor(min / 60)),
